@@ -1,0 +1,96 @@
+.dashboard-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 26px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.dashboard-page-header h1 {
+  font-size: 1.6rem;
+}
+
+.dashboard-page-header p {
+  color: var(--color-text-muted);
+  margin-top: 6px;
+  font-size: 0.92rem;
+}
+
+.dashboard-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.dashboard-tabs {
+  display: flex;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  width: fit-content;
+  margin-bottom: 22px;
+}
+
+.dashboard-tab {
+  border: none;
+  background: transparent;
+  padding: 9px 16px;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.dashboard-tab.active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.orchestration-card {
+  padding: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.orchestration-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.orchestration-card p {
+  color: var(--color-text-muted);
+  font-size: 0.87rem;
+  max-width: 420px;
+  line-height: 1.5;
+}
+
+.orchestration-flow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.flow-node {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--color-bg);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.flow-node.disabled {
+  opacity: 0.4;
+}
+
+.flow-arrow {
+  color: var(--color-text-muted);
+}

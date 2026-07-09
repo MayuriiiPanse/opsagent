@@ -1,0 +1,261 @@
+.home {
+  min-height: 100%;
+  background: linear-gradient(180deg, #ffffff 0%, #f2f2fc 100%);
+}
+
+.home-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 48px;
+  border-bottom: 1px solid var(--color-border);
+  background: #fff;
+}
+
+.home-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.home-logo {
+  font-size: 1.8rem;
+  color: var(--color-primary);
+}
+
+.home-brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--color-text);
+}
+
+.home-brand-divider {
+  margin: 0 10px;
+  color: var(--color-border);
+}
+
+.home-brand-sub {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.home-help {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.home-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 90px 90px 70px;
+  gap: 40px;
+}
+
+.home-hero-copy h1 {
+  font-size: 3rem;
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+.home-hero-copy .accent {
+  color: var(--color-primary);
+}
+
+.home-hero-copy p {
+  margin-top: 22px;
+  max-width: 440px;
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.home-hero-art {
+  position: relative;
+  width: 420px;
+  height: 320px;
+  flex-shrink: 0;
+}
+
+.hexagon {
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  font-size: 7rem;
+  color: var(--color-primary);
+  opacity: 0.85;
+}
+
+.floating-icon {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.icon-1 {
+  top: 5%;
+  left: 30%;
+}
+
+.icon-2 {
+  top: 10%;
+  right: 0;
+}
+
+.icon-3 {
+  bottom: 12%;
+  left: 8%;
+  color: #17b26a;
+}
+
+.icon-4 {
+  bottom: 6%;
+  right: 6%;
+  color: var(--color-primary);
+}
+
+.home-steps-section {
+  background: #fff;
+  border-top: 1px solid var(--color-border);
+  padding: 60px 40px 80px;
+  text-align: center;
+}
+
+.home-steps-section h2 {
+  font-size: 1.9rem;
+}
+
+.steps-progress {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 18px 0 50px;
+}
+
+.dash {
+  width: 34px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-border);
+}
+
+.dash.active {
+  background: var(--color-primary);
+}
+
+.steps-grid {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.step-card {
+  max-width: 260px;
+  position: relative;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.step-icon {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 20px;
+  border-radius: 20px;
+  background: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.step-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+.step-card p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.cta {
+  margin-top: 56px;
+  font-size: 1rem;
+  padding: 14px 30px;
+}
+
+.cta-note {
+  margin-top: 10px;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.secure-banner {
+  margin: 40px auto 0;
+  max-width: 480px;
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+}
+
+.secure-icon {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+}
+
+.secure-banner p {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+  .home-hero {
+    flex-direction: column;
+    padding: 50px 24px;
+    text-align: center;
+  }
+
+  .home-hero-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-hero-art {
+    width: 100%;
+    max-width: 360px;
+    height: 260px;
+  }
+}
