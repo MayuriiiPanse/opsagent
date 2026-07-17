@@ -4,6 +4,7 @@ import Homepage from "./pages/Homepage.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import EnergyAgentPage from "./pages/EnergyAgentPage.jsx";
 import MaintenanceAgentPage from "./pages/MaintenanceAgentPage.jsx";
+import OccupancyAgentPage from "./pages/OccupancyAgentPage.jsx";
 import DashboardLayout from "./components/DashboardLayout.jsx";
 
 export default function App() {
@@ -17,6 +18,10 @@ export default function App() {
         <Route
           path="/dashboard/maintenance-agent"
           element={<MaintenanceAgentPage />}
+        />
+        <Route
+          path="/dashboard/occupancy-agent"
+          element={<OccupancyAgentPage />}
         />
       </Route>
     </Routes>

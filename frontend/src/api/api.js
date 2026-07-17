@@ -29,5 +29,7 @@ export const api = {
     get("/maintenance-agent/health-distribution"),
   getMaintenanceAssets: () => get("/maintenance-agent/assets"),
   getMaintenanceWorkOrders: () => get("/maintenance-agent/work-orders"),
-  getMaintenanceAlerts: () => get("/maintenance-agent/alerts")
+  getMaintenanceAlerts: () => get("/maintenance-agent/alerts"),
+  getOccupancyAgent: () => get("/occupancy-agent")
 };
+

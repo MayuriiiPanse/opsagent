@@ -9,15 +9,21 @@ const TABS = ["All Modules", "Operations", "Maintenance", "Sustainability", "Sec
 export default function Dashboard() {
   const [energy, setEnergy] = useState(null);
   const [maintenance, setMaintenance] = useState(null);
+  const [occupancy, setOccupancy] = useState(null);
   const [activeTab, setActiveTab] = useState("All Modules");
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    Promise.all([api.getEnergyAgent(), api.getMaintenanceAgent()])
-      .then(([e, m]) => {
-        setEnergy(e);
-        setMaintenance(m);
-      })
+    Promise.all([
+  api.getEnergyAgent(),
+  api.getMaintenanceAgent(),
+  api.getOccupancyAgent()
+])
+.then(([e, m, o]) => {
+  setEnergy(e);
+  setMaintenance(m);
+  setOccupancy(o);
+})
       .catch((err) => setError(err.message));
   }, []);
 
@@ -31,7 +37,7 @@ export default function Dashboard() {
     );
   }
 
-  if (!energy || !maintenance) {
+  if (!energy || !maintenance || !occupancy) {
     return <div className="page-loading">Loading AI agent modules…</div>;
   }
 
@@ -51,7 +57,7 @@ export default function Dashboard() {
       </div>
 
       <div className="dashboard-kpis">
-        <KpiCard icon="⚡" value="2" label="Active Modules" trend="running smoothly ✓" />
+        <KpiCard icon="⚡" value="3" label="Active Modules" trend="running smoothly ✓" />
         <KpiCard
           icon="✓"
           value={`${avgEfficiencyGain}%`}
@@ -138,6 +144,41 @@ export default function Dashboard() {
         ]}
       />
 
+      <AgentModuleCard
+        index={3}
+        icon="👥"
+        iconTone="occupancy"
+        title="Occupancy Agent"
+        description="AI-powered real-time occupancy monitoring and space optimization."
+        capabilities={[
+          "Occupancy Detection",
+          "Space Utilization",
+          "Crowd Monitoring"
+        ]}
+        chartType="line"
+        chartData={[
+          occupancy.currentOccupancy - 20,
+          occupancy.currentOccupancy - 10,
+          occupancy.currentOccupancy
+        ]}
+        chartColor="#ff9800"
+        detailPath="/dashboard/occupancy-agent"
+        stats={[
+          {
+            value: occupancy.currentOccupancy,
+            label: "Current Occupancy"
+          },
+          {
+            value: occupancy.occupancyRate,
+            label: "Occupancy Rate"
+          },
+          {
+            value: occupancy.aiConfidence,
+            label: "AI Confidence"
+        }
+      ]}
+    />
+
       <div className="card orchestration-card">
         <div>
           <h3>AI Agents Working Together</h3>
@@ -151,7 +192,7 @@ export default function Dashboard() {
           <span className="flow-arrow">→</span>
           <span className="flow-node">🔧 Maintenance Agent</span>
           <span className="flow-arrow">→</span>
-          <span className="flow-node disabled">👥 Occupancy Agent</span>
+          <span className="flow-node">👥 Occupancy Agent</span>
           <span className="flow-arrow">→</span>
           <span className="flow-node disabled">🛡 Security Agent</span>
         </div>
