@@ -49,39 +49,39 @@ export default function OccupancyAgentPage() {
 
       <div className="dashboard-kpis">
         <KpiCard
-          icon="🏢"
-          value={data.totalCapacity}
-          label="Total Capacity"
-        />
+  icon="👥"
+  value={data.summary.currentOccupancy}
+  label="Current Occupancy"
+/>
 
-        <KpiCard
-          icon="👥"
-          value={data.currentOccupancy}
-          label="Current Occupancy"
-        />
+<KpiCard
+  icon="📊"
+  value={`${data.summary.occupancyRate}%`}
+  label="Occupancy Rate"
+/>
 
-        <KpiCard
-          icon="📊"
-          value={data.occupancyRate}
-          label="Occupancy Rate"
-        />
-
-        <KpiCard
-          icon="🤖"
-          value={data.aiConfidence}
-          label="AI Confidence"
-          tone="success"
-        />
+<KpiCard
+  icon="🤖"
+  value={`${data.summary.aiConfidence}%`}
+  label="AI Confidence"
+  tone="success"
+/>
       </div>
 
       <div className="card panel">
         <h3>AI Recommendations</h3>
 
         <ul className="recommendation-list">
-          {data.recommendations.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
+  {data.recommendations.map((item) => (
+    <li key={item.id}>
+      <strong>{item.title}</strong>
+      <br />
+      {item.description}
+      <br />
+      <small>Impact: {item.impact}</small>
+    </li>
+  ))}
+</ul>
       </div>
     </div>
   );

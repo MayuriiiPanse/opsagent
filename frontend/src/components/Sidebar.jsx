@@ -8,7 +8,7 @@ const navItems = [
   { label: "Work Orders", icon: "▭", disabled: true },
   { label: "Assets", icon: "▤", disabled: true },
   { label: "Monitoring", icon: "∿", disabled: true },
-  { label: "Analytics", icon: "▉", disabled: true },
+  { label: "Analytics", icon: "📊", to: "/dashboard/analytics"},
   { label: "Reports", icon: "▤", disabled: true },
   { label: "Alerts", icon: "🔔", disabled: true },
   { label: "Schedules", icon: "▦", disabled: true },

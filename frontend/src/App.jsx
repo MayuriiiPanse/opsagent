@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard.jsx";
 import EnergyAgentPage from "./pages/EnergyAgentPage.jsx";
 import MaintenanceAgentPage from "./pages/MaintenanceAgentPage.jsx";
 import OccupancyAgentPage from "./pages/OccupancyAgentPage.jsx";
+import AnalyticsPage from "./pages/AnalyticsPage.jsx";
 import DashboardLayout from "./components/DashboardLayout.jsx";
 
 export default function App() {
@@ -15,14 +16,9 @@ export default function App() {
       <Route element={<DashboardLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard/energy-agent" element={<EnergyAgentPage />} />
-        <Route
-          path="/dashboard/maintenance-agent"
-          element={<MaintenanceAgentPage />}
-        />
-        <Route
-          path="/dashboard/occupancy-agent"
-          element={<OccupancyAgentPage />}
-        />
+        <Route path="/dashboard/maintenance-agent" element={<MaintenanceAgentPage />} />
+        <Route path="/dashboard/occupancy-agent" element={<OccupancyAgentPage />} />
+        <Route path="/dashboard/analytics" element={<AnalyticsPage />}/>
       </Route>
     </Routes>
   );

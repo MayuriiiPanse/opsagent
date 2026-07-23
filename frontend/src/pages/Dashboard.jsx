@@ -126,22 +126,27 @@ export default function Dashboard() {
         description={maintenance.agent.description}
         capabilities={maintenance.agent.capabilities}
         chartType="bar"
-        chartData={maintenance.weeklyTrend.map((d) => d.workOrdersClosed)}
+        chartData={maintenance.weeklyTrend.map(day => day.temperature)}
         chartColor="#635bff"
         detailPath="/dashboard/maintenance-agent"
         stats={[
-          { value: `${maintenance.summary.mtbfImprovementPct}%`, label: "MTBF Improvement" },
-          {
-            value: maintenance.summary.workOrdersClosed,
-            label: "Work Orders Closed",
-            tone: "default"
-          },
-          {
-            value: `${maintenance.summary.downtimeReducedPct}%`,
-            label: "Downtime Reduced",
-            tone: "default"
-          }
-        ]}
+  {
+    value: `${maintenance.summary.equipmentHealth}%`,
+    label: "Equipment Health"
+  },
+  {
+    value: `${maintenance.summary.averageTemperature}°C`,
+    label: "Avg Temperature"
+  },
+  {
+    value: maintenance.summary.maintenanceStatus,
+    label: "Status"
+  },
+  {
+    value: `${maintenance.summary.aiAccuracy}%`,
+    label: "AI Accuracy"
+  }
+]}
       />
 
       <AgentModuleCard
@@ -149,36 +154,65 @@ export default function Dashboard() {
         icon="👥"
         iconTone="occupancy"
         title="Occupancy Agent"
-        description="AI-powered real-time occupancy monitoring and space optimization."
+        description={occupancy.agent.description}
         capabilities={[
           "Occupancy Detection",
           "Space Utilization",
           "Crowd Monitoring"
         ]}
         chartType="line"
-        chartData={[
-          occupancy.currentOccupancy - 20,
-          occupancy.currentOccupancy - 10,
-          occupancy.currentOccupancy
-        ]}
+        chartData={occupancy.weeklyTrend.map(day => day.occupancy)}
         chartColor="#ff9800"
         detailPath="/dashboard/occupancy-agent"
         stats={[
           {
-            value: occupancy.currentOccupancy,
+            value: occupancy.summary.currentOccupancy,
             label: "Current Occupancy"
           },
           {
-            value: occupancy.occupancyRate,
+            value: `${occupancy.summary.occupancyRate}%`,
             label: "Occupancy Rate"
           },
           {
-            value: occupancy.aiConfidence,
+            value: `${occupancy.summary.aiConfidence}%`,
             label: "AI Confidence"
-        }
-      ]}
-    />
-
+          }
+        ]}
+      />
+      <AgentModuleCard
+  index={4}
+  icon="📊"
+  iconTone="analytics"
+  title="Analytics"
+  description="Consolidated insights from Energy, Occupancy and Maintenance agents."
+  capabilities={[
+    "Performance Analytics",
+    "Trend Analysis",
+    "Building Health Score"
+  ]}
+  chartType="line"
+  chartData={[
+    energy.summary.efficiencyScorePct,
+    occupancy.summary.occupancyRate,
+    maintenance.summary.equipmentHealth
+  ]}
+  chartColor="#0ea5e9"
+  detailPath="/dashboard/analytics"
+  stats={[
+    {
+      value: `${energy.summary.efficiencyScorePct}%`,
+      label: "Energy"
+    },
+    {
+      value: `${occupancy.summary.occupancyRate}%`,
+      label: "Occupancy"
+    },
+    {
+      value: `${maintenance.summary.equipmentHealth}%`,
+      label: "Equipment"
+    }
+  ]}
+/>
       <div className="card orchestration-card">
         <div>
           <h3>AI Agents Working Together</h3>
